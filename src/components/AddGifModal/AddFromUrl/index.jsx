@@ -7,6 +7,7 @@ export const AddFromUrl = ({ setIsUploadingFromUrl }) => {
   const { setIsAddGifModalOpen } = useUI();
   const { user } = useUser();
   const { addUrlGif } = useGifs();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [gifData, setGifData] = useState({
     title: "",
@@ -20,11 +21,13 @@ export const AddFromUrl = ({ setIsUploadingFromUrl }) => {
   };
 
   const handleUpload = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const res = await addUrlGif(gifData);
     if (res) {
       setIsAddGifModalOpen(false);
     }
+    setIsLoading(false);
   };
   return (
     <form
@@ -84,9 +87,18 @@ export const AddFromUrl = ({ setIsUploadingFromUrl }) => {
           </option>
         </select>
       </div>
-      <button className="w-full bg-cyan-600 text-white py-2 px-4 mt-6">
-        Upload
-      </button>
+      {isLoading ? (
+        <div className="w-full flex items-center justify-center">
+          <img
+            src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+             className="h-12 w-12"
+          />
+        </div>
+      ) : (
+        <button className="w-full bg-cyan-600 text-white py-2 px-4 mt-6">
+          Upload
+        </button>
+      )}
       <p
         className="cursor-pointer text-white text-lg font-bold text-center w-full"
         onClick={() => setIsUploadingFromUrl(false)}

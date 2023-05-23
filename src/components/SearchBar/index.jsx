@@ -18,7 +18,7 @@ export const SearchBar = () => {
     >
       <input
         type="text"
-        className=" text-xl py-2 px-8 rounded-sm text-gray-500 outline-none "
+        className=" text-xl px-4 py-1 md:py-2 md:px-8 rounded-sm text-gray-500 outline-none "
         maxLength={24}
         placeholder="Search Gifs"
         value={query}

@@ -61,10 +61,10 @@ export const Details = () => {
       {isLoading ? (
         <Loader />
       ) : currentGif ? (
-        <div className="w-1/2 flex flex-col items-center justify-center gap-6 mt-4 relative">
+        <div className="w-4/5 md:w-1/2 flex flex-col items-center justify-center gap-6 mt-4 relative">
           <img
             src={currentGif.url}
-            className="w-full h-[60vh] object-cover rounded-md"
+            className="w-full md:h-[60vh] object-cover rounded-md"
           />
           <BiCopy
             className="absolute top-4 left-2 text-white text-2xl cursor-pointer"

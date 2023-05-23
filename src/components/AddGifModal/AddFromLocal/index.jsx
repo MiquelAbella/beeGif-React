@@ -7,15 +7,18 @@ export const AddFromLocal = ({ setIsUploadingFromUrl }) => {
   const { user } = useUser();
   const { addLocalGif } = useGifs();
   const { setIsAddGifModalOpen } = useUI();
+  const [isLoading, setIsLoading] = useState(false);
 
   const formRef = useRef(null);
 
   const handleUpload = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const formData = new FormData(formRef.current);
     formData.append("owner", user._id);
-    const res = await addLocalGif(formData);
+    await addLocalGif(formData);
     setIsAddGifModalOpen(false);
+    setIsLoading(false);
   };
 
   return (
@@ -72,9 +75,18 @@ export const AddFromLocal = ({ setIsUploadingFromUrl }) => {
           </option>
         </select>
       </div>
-      <button className="w-full bg-cyan-600 text-white py-2 px-4 mt-6">
-        Upload
-      </button>
+      {isLoading ? (
+        <div className="w-full flex items-center justify-center">
+          <img
+            src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif"
+            className="h-12 w-12"
+          />
+        </div>
+      ) : (
+        <button className="w-full bg-cyan-600 text-white py-2 px-4 mt-6">
+          Upload
+        </button>
+      )}
       <p
         className="cursor-pointer text-white text-lg font-bold text-center w-full"
         onClick={() => setIsUploadingFromUrl(true)}
