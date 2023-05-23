@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useUser } from "../../../Context/UserContext/UserContext";
+import { useUI } from "../../../Context/UIContext/UIContext";
 
 export const RegisterForm = ({ isLoging, setIsLoging }) => {
   const { register } = useUser();
+  const { setIsLoginUserModalOpen } = useUI();
 
   const [registerData, setRegisterData] = useState({
     name: "",
@@ -28,7 +30,9 @@ export const RegisterForm = ({ isLoging, setIsLoging }) => {
       className="w-full h-full flex flex-col gap-6 items-center justify-center rounded-sm"
       onSubmit={handleRegister}
     >
-        <p className="mb-6 w-full text-center text-6xl text-blue-400 font-bold">Register</p>
+      <p className="mb-6 w-full text-center text-6xl text-blue-400 font-bold">
+        Register
+      </p>
       <div className="w-full px-4 bg-white/50 rounded-md">
         <label className="text-gray-500" htmlFor="name">
           Name

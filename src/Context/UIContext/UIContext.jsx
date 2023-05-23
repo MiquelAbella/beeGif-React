@@ -11,6 +11,8 @@ export const useUI = () => {
 export const UIProvider = ({ children }) => {
   const [isLoginUserModalOpen, setIsLoginUserModalOpen] = useState(false);
   const [isAddGifModalOpen, setIsAddGifModalOpen] = useState(false);
+  const [messageSuccessToaster, setMessageSuccessToaster] = useState("");
+  const [messageErrorToaster, setMessageErrorToaster] = useState("");
 
   return (
     <UIContext.Provider
@@ -19,6 +21,10 @@ export const UIProvider = ({ children }) => {
         setIsLoginUserModalOpen,
         isAddGifModalOpen,
         setIsAddGifModalOpen,
+        messageSuccessToaster,
+        setMessageSuccessToaster,
+        messageErrorToaster,
+        setMessageErrorToaster,
       }}
     >
       {children}

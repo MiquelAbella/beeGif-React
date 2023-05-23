@@ -8,17 +8,17 @@ import UIProvider from "./Context/UIContext/UIContext";
 
 function App() {
   return (
-    <UserProvider>
-      <GifsProvider>
-        <UIProvider>
+    <UIProvider>
+      <UserProvider>
+        <GifsProvider>
           <BrowserRouter>
             <Layout>
               <Router />
             </Layout>
           </BrowserRouter>
-        </UIProvider>
-      </GifsProvider>
-    </UserProvider>
+        </GifsProvider>
+      </UserProvider>
+    </UIProvider>
   );
 }
 

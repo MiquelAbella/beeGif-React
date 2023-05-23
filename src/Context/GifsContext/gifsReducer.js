@@ -4,6 +4,8 @@ export const gifsReducer = (state = {}, action) => {
   switch (action.type) {
     case types.getAll:
       return { ...state, gifs: action.payload };
+    case types.getByTag:
+      return { ...state, gifs: action.payload };
     case types.getById:
       return { ...state, currentGif: action.payload };
     case types.deleteById:

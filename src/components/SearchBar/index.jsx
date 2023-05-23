@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useGifs } from "../../Context/GifsContext/GifsContext";
 
 export const SearchBar = () => {
   const [query, setQuery] = useState("");
+  const { search } = useGifs();
 
   const handleSearch = (e) => {
     e.preventDefault();
-    console.log(query);
+    search(query);
   };
 
   return (

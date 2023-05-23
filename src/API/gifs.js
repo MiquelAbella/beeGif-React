@@ -21,6 +21,16 @@ export const getById = async (id) => {
   }
 };
 
+export const getByTag = async (tag) => {
+  const res = await axios.get(`${BASE_URL}/tag/${tag}`);
+
+  if (res.data.ok) {
+    return res.data.gifs;
+  } else {
+    return null;
+  }
+};
+
 export const deleteGif = async (id) => {
   const res = await axios.delete(`${BASE_URL}/${id}`);
 
@@ -50,6 +60,26 @@ export const addGifFromLocal = async (gifData) => {
 
   if (res.data.ok) {
     return res.data.gif;
+  } else {
+    return null;
+  }
+};
+
+export const searchGifs = async (query) => {
+  const res = await axios.get(`${BASE_URL}/search/${query}`);
+
+  if (res.data.ok) {
+    return res.data.gifs;
+  } else {
+    return null;
+  }
+};
+
+export const editGif = async (id, newTitle) => {
+  const res = await axios.post(`${BASE_URL}/edit`, { id, newTitle });
+
+  if (res.data.ok) {
+    return res.data.updatedGif;
   } else {
     return null;
   }

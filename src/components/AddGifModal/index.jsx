@@ -14,7 +14,7 @@ export const AddGifModal = () => {
       onClick={() => setIsAddGifModalOpen(false)}
     >
       <div
-        className="w-1/2 py-12 px-4 bg-white"
+        className="w-1/2 py-12 px-4 bg-[url(https://media.tenor.com/Q0Fda6ZNcj4AAAAC/minions-scream.gif)] bg-cover"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="w-full px-4">

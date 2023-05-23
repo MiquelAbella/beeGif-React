@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import { BiCopy } from "react-icons/bi";
+import { useUI } from "../../Context/UIContext/UIContext";
 
 export const GifCard = ({ title, img, gifId, tag }) => {
   const navigate = useNavigate();
+  const { setMessageSuccessToaster } = useUI();
   const handleViewDetails = () => {
     navigate(`/details/${gifId}`);
   };
@@ -10,7 +13,13 @@ export const GifCard = ({ title, img, gifId, tag }) => {
     dance: "bg-green-600",
     music: "bg-blue-600",
     art: "bg-violet-600",
-    other: "bg-red-600"
+    other: "bg-red-600",
+  };
+
+  const handleCopyLink = (e) => {
+    e.stopPropagation();
+    navigator.clipboard.writeText(img);
+    setMessageSuccessToaster("Copied to clipboard");
   };
 
   return (
@@ -29,6 +38,10 @@ export const GifCard = ({ title, img, gifId, tag }) => {
       >
         {tag}
       </p>
+      <BiCopy
+        className="absolute top-4 left-2 text-white text-2xl"
+        onClick={handleCopyLink}
+      />
     </div>
   );
 };
