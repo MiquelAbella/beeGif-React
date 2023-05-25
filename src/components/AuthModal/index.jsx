@@ -14,7 +14,7 @@ export const AuthModal = () => {
       onClick={() => setIsLoginUserModalOpen(false)}
     >
       <div
-        className="w-4/5 md:w-1/2 py-12 px-4 bg-[url(https://media.tenor.com/FtWWzEL_o0EAAAAM/good-morning-good-night.gif)] bg-cover rounded-md"
+        className="w-4/5 md:w-1/2 py-12 px-4  bg-[url(https://media.tenor.com/XgFebHxbC8IAAAAC/despicable-me-minions.gif)] bg-cover rounded-md"
         onClick={(e) => e.stopPropagation()}
       >
         {!isLoging ? (
